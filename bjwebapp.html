@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    /* Navbar styling */
+/* Navbar styling */
+.navbar {
+  background-color: blue;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: white;
+  color: blue;
+}
+
+/* Flexbox layout */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+/* Footer styling */
+.footer {
+  background-color: blue;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.footer button {
+  background-color: white;
+  color: blue;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: blue;
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#" class="icon" onclick="toggleMenu()">&#9776;</a>
+  </div>
+  
+  <!-- Page content -->
+  <div class="content">
+    <h1>Your Spending Habits:</h1>
+    <p>This is a sample page with a navbar and footer.</p>
+  </div>
+  
+  <!-- Hamburger menu script -->
+  <script>
+    function toggleMenu() {
+      var x = document.getElementsByClassName("navbar")[0];
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+  </script>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+  labels: [
+    'Red',
+    'Blue',
+    'Yellow'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [300, 50, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+},
+options: {
+    responsive: true,
+    maintainAspectRatio: false
+  }
+    });
+  </script>
+  
+  <!-- Footer -->
+  <div class="footer">
+    <a href="C:\Users\User\Desktop\Bajaj WebApp\saving-quest.html"><button>Savings Quest</button></a>
+    <a href="C:\Users\User\Desktop\Bajaj WebApp\quiz.html"><button>Quiz</button></a>
+    <a href="C:\Users\User\Desktop\Bajaj WebApp\challenges.html"><button>Cashback Challenge</button></a>
+  </div>
+   
+</body>
+</html>

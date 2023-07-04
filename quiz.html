@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Time</title>
+    <style>
+      /* Navbar styling */
+      .navbar {
+        background-color: blue;
+      }
+      
+      .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .navbar a:hover {
+        background-color: white;
+        color: blue;
+      }
+      
+      /* Quiz styling */
+      form {
+        margin: 20px;
+      }
+      
+      input[type=radio] {
+        margin-right: 10px;
+      }
+      
+      input[type=submit] {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      input[type=submit]:hover {
+        background-color: white;
+        color: blue;
+      }
+      
+      /* Flexbox layout */
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      
+      .content {
+        flex: 1;
+      }
+      
+      /* Footer styling */
+      .footer {
+        background-color: blue;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+      
+      .footer button {
+        background-color: white;
+        color: blue;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      
+      .footer button:hover {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" class="icon" onclick="toggleMenu()">&#9776;</a>
+    </div>
+    
+    <!-- Quiz content -->
+    <div class="content">
+      <h1>Quiz Time</h1>
+      
+      <form>
+        <p>What is the capital of France?</p>
+        <input type="radio" id="paris" name="capital" value="paris">
+        <label for="paris">Paris</label><br>
+        <input type="radio" id="london" name="capital" value="london">
+        <label for="london">London</label><br>
+        <input type="radio" id="berlin" name="capital" value="berlin">
+        <label for="berlin">Berlin</label><br>
+        <input type="radio" id="rome" name="capital" value="rome">
+        <label for="rome">Rome</label><br>
+        
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    
+    <!-- Hamburger menu script -->
+    <script>
+      function toggleMenu() {
+        var x = document.getElementsByClassName("navbar")[0];
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+    </script>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <a href="C:\Users\User\Desktop\Bajaj WebApp\saving-quest.html"><button>Savings Quest</button></a>
+        <a href="C:\Users\User\Desktop\Bajaj WebApp\quiz.html"><button>Quiz</button></a>
+        <a href="C:\Users\User\Desktop\Bajaj WebApp\challenges.html"><button>Cashback Challenge</button></a>
+      </div>
+  </body>
+</html>

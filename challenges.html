@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges</title>
+    <style>
+      /* Navbar styling */
+      .navbar {
+        background-color: blue;
+      }
+      
+      .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .navbar a:hover {
+        background-color: white;
+        color: blue;
+      }
+      
+      /* Challenge box styling */
+      .challenge-box {
+        background-color: lightgray;
+        border-radius: 10px;
+        margin: 20px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      h2 {
+        margin-top: 0;
+      }
+      
+      p {
+        margin-bottom: 0;
+      }
+      
+      /* Flexbox layout */
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      
+      .content {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      /* Footer styling */
+      .footer {
+        background-color: blue;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+      
+      .footer button {
+        background-color: white;
+        color: blue;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      
+      .footer button:hover {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" class="icon" onclick="toggleMenu()">&#9776;</a>
+    </div>
+    
+    <!-- Challenges content -->
+    <div class="content">
+      <div class="challenge-box">
+        <h2>Level 1</h2>
+        <p>Target Amount: 200 Rs</p>
+        <p>Reward: 5 Bajaj Coins</p>
+        <button>Start Challenge</button>
+      </div>
+      
+      <div class="challenge-box">
+        <h2>Level 2</h2>
+        <p>Target Amount: 500 Rs</p>
+        <p>Reward: 10 Bajaj Coins</p>
+        <button>Start Challenge</button>
+      </div>
+      
+      <div class="challenge-box">
+        <h2>Level 3</h2>
+        <p>Target Amount: 1000 Rs</p>
+        <p>Reward: 20 Bajaj Coins</p>
+        <button>Start Challenge</button>
+      </div>
+      
+      <div class="challenge-box">
+        <h2>Level 4</h2>
+        <p>Target Amount: 2000 Rs</p>
+        <p>Reward: 50 Bajaj Coins</p>
+        <button>Start Challenge</button>
+      </div>
+    </div>
+    
+    <!-- Hamburger menu script -->
+    <script>
+      function toggleMenu() {
+        var x = document.getElementsByClassName("navbar")[0];
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+    </script>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <a href="C:\Users\User\Desktop\Bajaj WebApp\saving-quest.html"><button>Savings Quest</button></a>
+        <a href="C:\Users\User\Desktop\Bajaj WebApp\quiz.html"><button>Quiz</button></a>
+        <a href="C:\Users\User\Desktop\Bajaj WebApp\challenges.html"><button>Cashback Challenge</button></a>
+      </div>
+  </body>
+</html>
