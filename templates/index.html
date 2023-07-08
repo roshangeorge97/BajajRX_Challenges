@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    /* Navbar styling */
+/* Navbar styling */
+.navbar {
+  background-color: blue;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: white;
+  color: blue;
+}
+
+/* Flexbox layout */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+/* Footer styling */
+.footer {
+  background-color: blue;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.footer button {
+  background-color: white;
+  color: blue;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: blue;
+  color: white;
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="#" class="icon" onclick="toggleMenu()">&#9776;</a>
+  </div>
+  
+  <!-- Page content -->
+  <div class="content">
+    <h1>Your Spending Habits:</h1>
+    <div id="holder-info"></div>
+    <div id="summary-info"></div>
+    <div id="transaction-info"></div>
+  </div>
+
+
+  
+  <!-- Hamburger menu script -->
+  
+  <script>
+    function toggleMenu() {
+      var x = document.getElementsByClassName("navbar")[0];
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+  </script>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+  const transactions = [
+  { category: 'Groceries', amount: 150.75 },
+  { category: 'Transportation', amount: 25.00 },
+  { category: 'Healthcare', amount: 75.00 },
+  { category: 'Mobile Recharge', amount: 50.00 },
+  { category: 'Clothing', amount: 100.00 },
+  { category: 'Electronics', amount: 250.00 },
+  { category: 'Groceries', amount: 50.00 },
+];
+
+const categories = {
+  'Groceries': 'rgba(255, 99, 132, 0.2)',
+  'Transportation': 'rgba(54, 162, 235, 0.2)',
+  'Healthcare': 'rgba(255, 206, 86, 0.2)',
+  'Mobile Recharge': 'rgba(75, 192, 192, 0.2)',
+  'Clothing': 'rgba(153, 102, 255, 0.2)',
+  'Electronics': 'rgba(255, 159, 64, 0.2)',
+  'Anonymous': 'rgba(128, 128, 128, 0.2)'
+};
+
+const labelArray = [];
+const dataArray = [];
+
+transactions.forEach((transaction) => {
+  if (categories.hasOwnProperty(transaction.category)) {
+    const index = labelArray.indexOf(transaction.category);
+    if (index === -1) {
+      labelArray.push(transaction.category);
+      dataArray.push(transaction.amount);
+    } else {
+      dataArray[index] += transaction.amount;
+    }
+  } else {
+    labelArray.push('Anonymous');
+    dataArray.push(transaction.amount);
+  }
+});
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: labelArray,
+    datasets: [{
+      label: 'Spending',
+      data: dataArray,
+      backgroundColor: Object.values(categories),
+      borderColor: Object.values(categories),
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    title: {
+      display: true,
+      text: 'Spending by Category'
+    },
+    legend: {
+      display: true,
+      position: 'bottom'
+    }
+  }
+});
+    </script>
+
+<div>
+  <h3>You tend to spend too much on:{}</h3>
+  <span><h4>Create a savings quest now to save your hard earned money?</h4><a href="/saving-quest"><button>Create a Saving Quest!</button></a></span>
+</div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    <a href="/saving-quest"><button>Savings Quest</button></a>
+    <a href="/quiz"><button>Quiz</button></a>
+    <a href="/challenges"><button>Cashback Challenge</button></a>
+  </div>
+   
+</body>
+</html>

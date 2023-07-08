@@ -89,13 +89,44 @@
         color: white;
       }
     </style>
+   <script>
+		function submitForm() {
+			// Reward the user with Bajaj coins (you can replace this with your own logic)
+			var coins = 10;
+
+			// Show a message indicating that the quiz has been submitted and coins have been rewarded
+			var message = document.createElement('div');
+			message.innerHTML = 'The quiz has been submitted, and you have been rewarded ' + coins + ' Bajaj coins.';
+			message.style.position = 'fixed';
+			message.style.top = '50%';
+			message.style.left = '50%';
+			message.style.transform = 'translate(-50%, -50%)';
+			message.style.backgroundColor = '#f2f2f2';
+			message.style.padding = '20px';
+			message.style.border = '2px solid #ddd';
+			message.style.borderRadius = '5px';
+			message.style.opacity = '1';
+			message.style.transition = 'opacity 2s';
+			document.body.appendChild(message);
+
+			// Fade out the message after a few seconds
+			setTimeout(function() {
+				message.style.opacity = '0';
+				setTimeout(function() {
+					// Update the content of the page
+					document.body.innerHTML = '<h1>Thanks for taking the quiz!</h1><p>The quiz has been submitted, come back next week!</p>';
+				}, 2000);
+			}, 3000);
+
+			// Prevent the default form submission behavior
+			return false;
+		}
+	</script>
   </head>
   <body>
     <!-- Navbar -->
     <div class="navbar">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="/">Home</a>
       <a href="#" class="icon" onclick="toggleMenu()">&#9776;</a>
     </div>
     
@@ -103,7 +134,7 @@
     <div class="content">
       <h1>Quiz Time</h1>
       
-      <form>
+      <form onsubmit="return submitForm()">
         <p>What is the capital of France?</p>
         <input type="radio" id="paris" name="capital" value="paris">
         <label for="paris">Paris</label><br>
@@ -132,9 +163,9 @@
     
     <!-- Footer -->
     <div class="footer">
-        <a href="saving-quest.html"><button>Savings Quest</button></a>
-        <a href="quiz.html"><button>Quiz</button></a>
-        <a href="challenges.html"><button>Cashback Challenge</button></a>
-      </div>
+      <a href="/saving-quest"><button>Savings Quest</button></a>
+      <a href="/quiz"><button>Quiz</button></a>
+      <a href="/challenges"><button>Cashback Challenge</button></a>
+    </div>
   </body>
 </html>

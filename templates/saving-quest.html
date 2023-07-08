@@ -53,7 +53,40 @@
         border-radius: 5px;
         cursor: pointer;
       }
-      
+      .progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #f2f2f2;
+  margin-top: 20px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+.success {
+  width: 100%;
+}
+
+      .hidden {
+  display: none;
+}
+
+.success-box {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.show {
+  opacity: 1;
+}
+
       input[type=submit]:hover {
         background-color: white;
         color: blue;
@@ -114,21 +147,31 @@
     <div class="content">
       <h1>Create Savings Quest</h1>
       
-      <form>
+      <form id="quest-form">
         <label for="quest-name">Quest Name:</label>
-        <input type="text" id="quest-name" name="quest-name"><br>
-        
+        <input type="text" id="quest-name" name="quest-name" placeholder="What is your motivation to save?"><br>
+              
         <label for="target-amount">Target Amount:</label>
         <input type="number" id="target-amount" name="target-amount"><br>
-        
+              
         <label for="start-date">Start Date:</label>
         <input type="date" id="start-date" name="start-date"><br>
-        
+              
         <label for="end-date">End Date:</label>
         <input type="date" id="end-date" name="end-date"><br>
-        
+              
         <input type="submit" value="Create">
       </form>
+      <div id="success-box" class="hidden">
+        <h2>Quest Created Successfully!</h2>
+        <p>Quest Name: <span id="quest-name-display"></span></p>
+        <p>Target Amount: <span id="target-amount-display"></span></p>
+        <p>Start Date: <span id="start-date-display"></span></p>
+        <p>End Date: <span id="end-date-display"></span></p>
+        <button>Start Quest</button>
+      </div>
+      <div id="success-messages"></div>
+      <div id="completion-message" class="hidden">Quest Completed! The money has been transferred to your bank account.</div>
     </div>
     
     <!-- Hamburger menu script -->
@@ -142,12 +185,57 @@
         }
       }
     </script>
+    <script>
+const form = document.getElementById('quest-form');
+const successMessages = document.getElementById('success-messages');
+const completionMessage = document.getElementById('completion-message');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  const questName = document.getElementById('quest-name').value;
+  const targetAmount = document.getElementById('target-amount').value;
+  const startDate = document.getElementById('start-date').value;
+  const endDate = document.getElementById('end-date').value;
+  
+  // Do something with the form data, e.g. send it to a server
+  
+  const successBox = document.createElement('div');
+  successBox.classList.add('success-box');
+  successBox.innerHTML = `<h2>Quest Created Successfully!</h2>
+                          <p>Quest Name: ${questName}</p>
+                          <p>Target Amount: ${targetAmount}</p>
+                          <p>Start Date: ${startDate}</p>
+                          <p>End Date: ${endDate}</p>
+                          <div class="progress-bar">
+                            <div class="progress"></div>
+                          </div>
+                          <button id="progress-button">Deposit Rs.100</button>`;
+  
+  successMessages.appendChild(successBox);
+
+  // Show progress bar
+  const progressBar = successBox.querySelector('.progress');
+  const progressButton = successBox.querySelector('#progress-button');
+  let progress = 0;
+  const increaseProgress = () => {
+    if (progress >= 100) {
+      progressBar.classList.add('success');
+      successBox.classList.add('hidden');
+      completionMessage.classList.remove('hidden');
+      progressButton.removeEventListener('click', increaseProgress);
+    } else {
+      progress += 10;
+      progressBar.style.width = progress + '%';
+    }
+  };
+  progressButton.addEventListener('click', increaseProgress);
+});</script>
     
-    <!-- Footer -->
     <div class="footer">
-      <a href="saving-quest.html"><button>Savings Quest</button></a>
-      <a href="quiz.html"><button>Quiz</button></a>
-      <a href="challenges.html"><button>Cashback Challenge</button></a>
+      <a href="/saving-quest"><button>Savings Quest</button></a>
+      <a href="/quiz"><button>Quiz</button></a>
+      <a href="/challenges"><button>Cashback Challenge</button></a>
     </div>
   </body>
 </html>
