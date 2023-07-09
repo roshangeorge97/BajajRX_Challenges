@@ -10,6 +10,16 @@ Compete in various challenges, such as Cashback Challenges and Quizzes, through 
 
 Set savings goals and receive reminders to stay on track. Analyze your spending behavior using AI to receive personalized recommendations and rewards for reaching your milestones.
 
+## model.py
+
+The ML model which was created is used to categorize the UPI Transactions and other transactions debited from the user account, into the 6 categories:
+Electornics
+Groceries
+Healthcare
+Transportation
+Clothing
+Retail
+
 ## User Profile
 
 Create a personalized avatar and track your financial health score to see how you're doing compared to other users. Use the on-boarding screen to set up your account and get started on your journey towards financial wellness.
