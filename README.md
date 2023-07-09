@@ -13,7 +13,7 @@ Set savings goals and receive reminders to stay on track. Analyze your spending 
 ## model.py
 
 The ML model which was created is used to categorize the UPI Transactions and other transactions debited from the user account, into the 6 categories:
-- Electornics
+- Electronics
 - Groceries
 - Healthcare
 - Transportation
