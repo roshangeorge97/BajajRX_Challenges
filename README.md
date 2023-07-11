@@ -1,4 +1,4 @@
-# Gamify Your Personal Finances with Bajaj Finserv 
+# Gamify Your Personal Finances with Bajaj Finserv  
 
 Bajaj Finserv is a web app that lets you gamify your personal finances through various features, including Quests, Challenges, and other Personalizations.
 
